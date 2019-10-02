@@ -1,47 +1,64 @@
 package ie.gmit.studentmanager;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class StudentManager {
-	// Set an initial capacity constant for the array. Before creating an
-	// array you need to know what size it is.
-	private static final int INITIAL_CAPACITY = 10;
-	// Declare an array to hold the student objects
-	private Student[] students = null;
 
-	// Constructor - Create students array
+	// Declare a List called students to hold the student objects
+	private List<Student> studentList;
+
+	// Constructor
 	public StudentManager() {
-		setStudents(new Student[INITIAL_CAPACITY]);
+		// Instantiating a new students ArrayList
+		studentList = new ArrayList<Student>();
 	}
 
-	// Getters 
-	public Student[] getStudents() {
-		return students;
-	}
-	
-	// Setters
-	public void setStudents(Student[] students) {
-		this.students = students;
+	// Getters and Setters
+	public List<Student> getStudents() {
+		return studentList;
 	}
 
-	// Create methods you may need and stub them out.
-	
-	// Add Method
-	public boolean add(Student student) {
+	public void setStudents(List<Student> students) {
+		this.studentList = students;
+	}
+
+	// Class Methods
+	public boolean addStudent(Student student) {
+		// Using Collections add method. It returns true if this collection
+		// changed as a result of the call
+		return studentList.add(student);
+	}
+
+	public boolean deleteStudent(Student student) {
+		// Using Collections remove method. It returns true if this list
+		// contained the specified element
+		return studentList.remove(student);
+	}
+
+	public boolean deleteStudentById(String studentId) {
+		// Search for the Student by ID
+		Student student = findStudentById(studentId);
+		// If a Student with given ID was found then delete the student
+		if(student != null) { 
+			deleteStudent(student);
+			return true;
+		}
 		return false;
 	}
-	
-	// Delete Method
-	public boolean delete(String studentId) {
-		return false;
-	}
 
-	// Find Students with first name method
-	public Student[] findStudentsWithFirstName(String firstName) {
+	public Student findStudentById(String studentId) {
 		return null;
 	}
 
-	// Find total Students method
+	// Find a list of student by first name
+	public List<Student> findStudentsByFirstName(String firstName) {
+		return null;
+	}
+
 	public int findTotalStudents() {
-		return -1;
+		// returns the current number of Students in the ArrayList
+		return studentList.size();
 	}
 
 }
