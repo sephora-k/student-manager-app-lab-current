@@ -1,7 +1,8 @@
 package ie.gmit.studentmanager;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 public class StudentManager {
 
@@ -14,16 +15,16 @@ public class StudentManager {
 		studentList = new ArrayList<Student>();
 	}
 
-	// Getters and Setters
+	// Getters
 	public List<Student> getStudents() {
 		return studentList;
 	}
 
-	public void setStudents(List<Student> students) {
-		this.studentList = students;
+	// Setters
+	public void setStudents(List<Student> studentList) {
+		this.studentList = studentList;
 	}
 
-	// Class Methods
 	public boolean addStudent(Student student) {
 		// Using Collections add method. It returns true if this collection
 		// changed as a result of the call
@@ -39,20 +40,69 @@ public class StudentManager {
 	public boolean deleteStudentById(String studentId) {
 		// Search for the Student by ID
 		Student student = findStudentById(studentId);
-		// If a Student with given ID was found then delete the student
-		if(student != null) { 
-			deleteStudent(student);
-			return true;
+		// If a Student was found then delete the student
+		if (student != null) {
+			return deleteStudent(student);
+		} else {
+			// If no student was found Return false
+			return false;
 		}
-		return false;
 	}
 
 	public Student findStudentById(String studentId) {
+
+		// Loop over (i.e. Iterate over) arrayList for Student type elements in
+		// the students ArrayList
+
+		// There are 3 ways you can iterate through a List.
+		// 1. For Loop
+		// 2. Advanced For Loop
+		// 3. Iterator
+
+		// 1. For Loop
+//		for (int i = 0; i < studentList.size(); i++) {
+//			if (studentList.get(i).getStudentId().equals(studentId)) {
+//				return studentList.get(i);
+//			}
+//		}
+
+		// 2. Advanced For Loop
+//		for (Student student : studentList) {
+//			// No need to check for null as ArrayList is dynamic and fills holes
+//			if (student.getStudentId().equals(studentId)) {
+//				return student;
+//			}
+//		}
+
+		// 3. Iterator
+		Iterator<Student> studentIterator = studentList.iterator();
+		while (studentIterator.hasNext()) {
+			if (studentIterator.next().getStudentId().equals(studentId)) {
+				return studentIterator.next();
+			}
+		}
+
+		// Return null if Student ID was not found
 		return null;
 	}
 
 	// Find a list of student by first name
-	public List<Student> findStudentsByFirstName(String firstName) {
+	public List<Student> getStudentsByFirstName(String firstName) {
+		// Create a new ArrayList to Hold Students with same names
+		List<Student> sameNames = new ArrayList<Student>();
+		// Loop over arrayList for Student type elements in the students ArrayList do
+		for (Student student : studentList) {
+			// If I find a student with the given first name then add to list
+			if (student.getFirstName().equalsIgnoreCase(firstName)) {
+				sameNames.add(student);
+			}
+		}
+		// Check if list has any students
+		if (sameNames.size() > 0) {
+			// If students were found then return the list
+			return sameNames;
+		}
+		// If no students were found with that first name then return null
 		return null;
 	}
 

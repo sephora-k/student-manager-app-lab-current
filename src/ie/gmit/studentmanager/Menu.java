@@ -1,6 +1,6 @@
 package ie.gmit.studentmanager;
 
-import java.util.*; // Required for Scanner
+import java.util.Scanner;
 
 public class Menu {
 	private Scanner userInput;
@@ -45,8 +45,20 @@ public class Menu {
 	private void selectOption(int userSelection) {
 		if (userSelection == 1) { // Load Students DB
 			System.out.println("User Selected 1");
+			keepRunning = false;
 		} else if (userSelection == 2) { // Add Student
-			System.out.println("User Selected 2");
+			System.out.println("Enter Student ID>");
+			String studentId = userInput.next();
+			Student newStudentObject = new Student(studentId);
+			
+			boolean result = studentManagerObject.addStudent(newStudentObject);
+
+			if (result) {
+				System.out.println("Student " + studentId + " has been added successfully.");
+			} else {
+				
+				System.out.println("ERROR: Student " + studentId +"  was not added!");
+			}
 		}
 	}
 
