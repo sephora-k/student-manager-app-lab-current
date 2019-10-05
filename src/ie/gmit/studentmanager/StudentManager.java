@@ -76,9 +76,13 @@ public class StudentManager {
 
 		// 3. Iterator
 		Iterator<Student> studentIterator = studentList.iterator();
+		Student studentObjectHolder;
 		while (studentIterator.hasNext()) {
-			if (studentIterator.next().getStudentId().equals(studentId)) {
-				return studentIterator.next();
+			// Store next Student
+			studentObjectHolder = studentIterator.next(); 
+			// Check if studentId equals that of current student object
+			if (studentObjectHolder.getStudentId().equals(studentId)) {
+				return studentObjectHolder;
 			}
 		}
 
