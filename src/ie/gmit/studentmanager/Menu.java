@@ -6,7 +6,8 @@ public class Menu {
 	private Scanner userInput;
 	private StudentManager studentManagerObject;
 	private boolean keepRunning;
-
+	
+	// Constructor Method
 	public Menu() {
 		// Create new scanner object to capture input from the user
 		userInput = new Scanner(System.in);
