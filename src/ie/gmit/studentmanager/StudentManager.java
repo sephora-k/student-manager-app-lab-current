@@ -26,15 +26,25 @@ public class StudentManager {
 	}
 
 	public boolean addStudent(Student student) {
-		// Using Collections add method. It returns true if this collection
-		// changed as a result of the call
-		return studentList.add(student);
+		try {
+			// Using Collections add method. It returns true if this collection 
+			// changed as a result of the call
+			return studentList.add(student);
+		} catch (Exception error) {
+			error.printStackTrace();
+			return false;
+		}
 	}
-
+	
 	public boolean deleteStudent(Student student) {
-		// Using Collections remove method. It returns true if this list
-		// contained the specified element
-		return studentList.remove(student);
+		try {
+			// Using Collections add method. It returns true if this collection 
+			// changed as a result of the call
+			return studentList.remove(student);
+		} catch (Exception error) {
+			error.printStackTrace();
+			return false;
+		}
 	}
 
 	public boolean deleteStudentById(String studentId) {
