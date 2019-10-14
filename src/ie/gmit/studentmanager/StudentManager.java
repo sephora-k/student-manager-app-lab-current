@@ -1,6 +1,11 @@
 package ie.gmit.studentmanager;
 
 import java.util.List;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -27,7 +32,7 @@ public class StudentManager {
 
 	public boolean addStudent(Student student) {
 		try {
-			// Using Collections add method. It returns true if this collection 
+			// Using Collections add method. It returns true if this collection
 			// changed as a result of the call
 			return studentList.add(student);
 		} catch (Exception error) {
@@ -35,10 +40,10 @@ public class StudentManager {
 			return false;
 		}
 	}
-	
+
 	public boolean deleteStudent(Student student) {
 		try {
-			// Using Collections add method. It returns true if this collection 
+			// Using Collections add method. It returns true if this collection
 			// changed as a result of the call
 			return studentList.remove(student);
 		} catch (Exception error) {
@@ -89,7 +94,7 @@ public class StudentManager {
 		Student studentObjectHolder;
 		while (studentIterator.hasNext()) {
 			// Store next Student
-			studentObjectHolder = studentIterator.next(); 
+			studentObjectHolder = studentIterator.next();
 			// Check if studentId equals that of current student object
 			if (studentObjectHolder.getStudentId().equals(studentId)) {
 				return studentObjectHolder;
@@ -118,6 +123,32 @@ public class StudentManager {
 		}
 		// If no students were found with that first name then return null
 		return null;
+	}
+
+	public void loadStudentFile(String pathToFile) {
+		File inFile = new File(pathToFile);
+		FileReader fileReader = null;
+		BufferedReader br = null;
+		String data = null;
+
+		try {
+			fileReader = new FileReader(inFile);
+			br = new BufferedReader(fileReader);
+			while ((data = br.readLine()) != null) {
+				Student newStudent = new Student(data);
+				this.addStudent(newStudent);
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				fileReader.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 	public int findTotalStudents() {
