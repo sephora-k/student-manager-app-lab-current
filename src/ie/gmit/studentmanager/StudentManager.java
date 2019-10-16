@@ -1,6 +1,5 @@
 package ie.gmit.studentmanager;
 
-import java.util.List;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -8,6 +7,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 public class StudentManager {
 
@@ -16,20 +16,25 @@ public class StudentManager {
 
 	// Constructor
 	public StudentManager() {
-		// Instantiating a new students ArrayList
+		// Instantiate a student ArrayList
 		studentList = new ArrayList<Student>();
 	}
 
-	// Getters
+	// Getters and Setters
 	public List<Student> getStudents() {
 		return studentList;
 	}
 
-	// Setters
 	public void setStudents(List<Student> studentList) {
 		this.studentList = studentList;
 	}
 
+	/**
+	 * This method adds a Student to the Student List.
+	 *
+	 * @param student a student object that is to be added to the student list
+	 * @return a boolean value indicating if the add was successful		
+	 */                     
 	public boolean addStudent(Student student) {
 		try {
 			// Using Collections add method. It returns true if this collection
@@ -43,8 +48,8 @@ public class StudentManager {
 
 	public boolean deleteStudent(Student student) {
 		try {
-			// Using Collections add method. It returns true if this collection
-			// changed as a result of the call
+			// Using Collections remove method. It returns true if this list 
+			// contained the specified element
 			return studentList.remove(student);
 		} catch (Exception error) {
 			error.printStackTrace();
