@@ -134,13 +134,15 @@ public class StudentManager {
 		File inFile = new File(pathToFile);
 		FileReader fileReader = null;
 		BufferedReader br = null;
-		String data = null;
+		String record = null;
 
 		try {
 			fileReader = new FileReader(inFile);
 			br = new BufferedReader(fileReader);
-			while ((data = br.readLine()) != null) {
-				Student newStudent = new Student(data);
+			br.readLine(); //discard first line of csv file
+			while ((record = br.readLine()) != null) {
+				String[] elements = record.split(",");
+				Student newStudent = new Student(elements[0], elements[1], elements[2]);
 				this.addStudent(newStudent);
 			}
 		} catch (FileNotFoundException e) {

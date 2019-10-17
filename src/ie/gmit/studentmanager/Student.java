@@ -15,7 +15,14 @@ public class Student {
 	public Student(String studentId) {
 		this.studentId = studentId;
 	}
-
+	
+	public Student(String studentId, String firstName, String surname) {
+		// this(studentId); - could set studentId this way
+		this.studentId = studentId;
+		this.firstName = firstName;
+		this.surname = surname;
+	}
+	
 	public Student(String studentId, String firstName, String surname, Date dob) {
 		// this(studentId); - could set studentId this way
 		this.studentId = studentId;
