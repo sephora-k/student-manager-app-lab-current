@@ -2,9 +2,11 @@ package ie.gmit.studentmanager;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -162,5 +164,18 @@ public class StudentManager {
 		// returns the current number of Students in the ArrayList
 		return studentList.size();
 	}
+	
+	public StudentManager loadDB(String dbPath){
+    	StudentManager sm = null;
+    	try {
+			ObjectInputStream in = new ObjectInputStream(new FileInputStream(dbPath));
+			sm = (StudentManager) in.readObject();
+    		in.close();
+    	} catch (Exception e) {
+    		System.out.print("[Error] Cannont load DB. Cause: ");
+    		e.printStackTrace();
+    	}
+		return sm;
+    }
 
 }
