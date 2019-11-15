@@ -1,0 +1,1 @@
+javac -d /tmp/ src/ie/gmit/studentmanager/*.java && java -cp /tmp/ ie.gmit.studentmanager.Main
