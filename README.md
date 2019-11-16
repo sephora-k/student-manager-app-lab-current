@@ -3,7 +3,7 @@ This is an basic framework template for a Student manager app
 
 My Name is Daniel
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/danielcregg/student-manager-app-javafx)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/danielcregg/student-manager-app-lab-current)
 
 [![Open in Gitpod](https://avatars0.githubusercontent.com/u/37021919?s=200&v=4)](https://gitpod.io/workspaces)
 
