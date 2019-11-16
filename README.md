@@ -7,8 +7,6 @@ My Name is Daniel
 
 [![Open in Gitpod](https://avatars0.githubusercontent.com/u/37021919?s=200&v=4)](https://gitpod.io/workspaces)
 
-[![Open in Gitpod](https://avatars0.githubusercontent.com/u/37021919?s=200&v=4)](https://gitpod.io/workspaces)
-
 Run Command:
 `javac -d /tmp/ src/ie/gmit/studentmanager/*.java && java -cp /tmp/ ie.gmit.studentmanager.Main`  
 or  
