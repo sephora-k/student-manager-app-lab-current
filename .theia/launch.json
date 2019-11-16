@@ -1,0 +1,11 @@
+{
+   "configurations": [
+      {
+         "type": "java",
+         "name": "CodeLens (Launch) - Main",
+         "request": "launch",
+         "mainClass": "ie.gmit.studentmanager.Main",
+         "projectName": "student-manager-app-lab-current_b91e0f12"
+      }
+   ]
+}
