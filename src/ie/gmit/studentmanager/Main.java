@@ -80,9 +80,9 @@ public class Main extends Application implements Serializable {
 		Scene scene1 = new Scene(gridPane1, 400, 450);
         // Setting the title to Stage.
         
-        if (getParameters().getRaw().size() == 0) {
-            primaryStage.setTitle("Student Manager Application");
-        } else {
+        if (getParameters().getRaw().size() == 0){
+            primaryStage.setTitle("Student Manager App");
+        } else{
             primaryStage.setTitle(getParameters().getRaw().get(0));
         }
     
