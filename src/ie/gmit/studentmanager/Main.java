@@ -78,9 +78,15 @@ public class Main extends Application implements Serializable {
 		// Preparing the Stage (i.e. the container of any JavaFX application)
 		// Create a Scene by passing the root group object, height and width
 		Scene scene1 = new Scene(gridPane1, 400, 450);
-		// Setting the title to Stage.
-		primaryStage.setTitle("Student Manager Application");
-		// Setting the scene to Stage
+        // Setting the title to Stage.
+        
+        if (getParameters().getRaw().size() == 0) {
+            primaryStage.setTitle("Student Manager Application");
+        } else {
+            primaryStage.setTitle(getParameters().getRaw().get(0));
+        }
+    
+        // Setting the scene to Stage
 		primaryStage.setScene(scene1);
 		// Displaying the stage
 		primaryStage.show();
