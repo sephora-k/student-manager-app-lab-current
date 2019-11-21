@@ -3,3 +3,6 @@ image:
 
 ports:
   - port: 6080
+vscode:
+  extensions:
+    - formulahendry.code-runner@0.9.15:WUpvbF4Wg44WiaFa7exZBw==
